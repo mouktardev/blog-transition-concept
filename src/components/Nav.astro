@@ -92,7 +92,6 @@ const pathname = new URL(Astro.request.url).pathname;
 	function initHamburger() {
 		const menu = getButton();
 		const tl = gsap.timeline({ paused: true });
-		console.log("running");
 		tl.to(
 			"#overlay",
 			{

@@ -44,7 +44,6 @@ const { SEO = defaultSEO } = Astro.props;
 					);
 			}
 			initArrow();
-
 			document.addEventListener("astro:after-swap", () => {
 				if (!document.getElementById("arrow")) return;
 				initArrow();

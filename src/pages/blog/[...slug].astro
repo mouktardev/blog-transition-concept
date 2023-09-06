@@ -13,7 +13,7 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<"posts">;
 const post = Astro.props;
 const id = post.id.replace(".md", "");
-const { title, excerpt, pubDate, author, heroImage } = post.data;
+const { title, pubDate, author } = post.data;
 const { Content } = await post.render();
 
 const SEO = {
