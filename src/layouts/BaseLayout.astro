@@ -1,0 +1,31 @@
+---
+import BaseHead from "@/components/BaseHead.astro";
+import Nav from "@/components/Nav.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "@/consts";
+
+const defaultSEO = {
+	title: SITE_TITLE,
+	description: SITE_DESCRIPTION,
+};
+const { SEO = defaultSEO } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SEO.title} description={SEO.description} />
+	</head>
+	<body>
+		<main class="w-screen">
+			<header class="container mx-auto p-5">
+				<Nav />
+			</header>
+			<section
+				transition:animate="slide"
+				class="flex flex-col container mx-auto p-5"
+			>
+				<slot />
+			</section>
+		</main>
+	</body>
+</html>

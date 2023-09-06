@@ -1,0 +1,53 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("posts");
+---
+
+<BaseLayout>
+	<!-- <ul class="grid grid-cols-1 lg:grid-cols-[1fr_minmax(600px,_1fr)_1fr] gap-8 my-10"> -->
+	<ul class="ml-auto my-10">
+		{
+			posts.map((post) => {
+				const id = post.id.replace(".md", "");
+				return (
+					<li class="lg:w-[500px] flex flex-col gap-4">
+						<a href={`/blog/${post.slug}/`} class="flex flex-col gap-3">
+							<hr
+								transition:name={`line-1-${id}`}
+								class="h-[1px] border-none bg-black"
+							/>
+							<h4
+								transition:name={`title-${id}`}
+								transition:animate="initial"
+								class="text-[2rem] leading-[2rem] p-[0.2em] font-bold capitalize"
+							>
+								{post.data.title}
+							</h4>
+							<hr
+								transition:name={`line-2-${id}`}
+								class="h-[1px] border-none bg-black"
+							/>
+						</a>
+						<p class="p-[0.2em]">{post.data.excerpt}</p>
+						<ul>
+							{post.data.tags.map((tag) => (
+								<li class="text-sm text-gray-400">{tag}</li>
+							))}
+						</ul>
+						{post.data.heroImage && (
+							<Image
+								width={720}
+								height={360}
+								src={post.data.heroImage}
+								alt=""
+							/>
+						)}
+					</li>
+				);
+			})
+		}
+	</ul>
+</BaseLayout>

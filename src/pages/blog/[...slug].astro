@@ -1,0 +1,54 @@
+---
+import { slideIn } from "@/animation/anim";
+import FormattedDate from "@/components/FormattedDate.astro";
+import PostLayout from "@/layouts/PostLayout.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+export async function getStaticPaths() {
+	const posts = await getCollection("posts");
+	return posts.map((post) => ({
+		params: { slug: post.slug },
+		props: post,
+	}));
+}
+type Props = CollectionEntry<"posts">;
+const post = Astro.props;
+const id = post.id.replace(".md", "");
+const { title, excerpt, pubDate, author, heroImage } = post.data;
+const { Content } = await post.render();
+
+const SEO = {
+	title: id,
+	description: title,
+};
+---
+
+<PostLayout {SEO}>
+	<div class="flex flex-col gap-3">
+		<hr
+			transition:name={`line-1-${id}`}
+			class="relative h-[1px] border-none bg-black"
+		/>
+		<h1
+			transition:animate="initial"
+			transition:name={`title-${id}`}
+			class="w-full lg:w-[1000px] text-[4rem] leading-[4rem] p-[0.2em] font-bold capitalize"
+		>
+			{title}
+		</h1>
+		<hr
+			transition:name={`line-2-${id}`}
+			class="relative h-[1px] border-none bg-black"
+		/>
+	</div>
+	<div transition:animate={slideIn} class="flex gap-4 mt-[100px]">
+		<aside class="lg:w-64 text-sm lg:text-base">
+			<hr class="h-[1px] only:border-none bg-black mb-5" />
+			<p>Written by</p>
+			<p>{author}</p>
+			<FormattedDate date={pubDate} />
+		</aside>
+		<article class="flex-1 prose lg:prose-xl mx-auto">
+			<Content />
+		</article>
+	</div>
+</PostLayout>

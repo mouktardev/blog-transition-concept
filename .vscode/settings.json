@@ -1,0 +1,28 @@
+{
+	"[astro]": {
+		"editor.defaultFormatter": "astro-build.astro-vscode"
+	},
+	"editor.formatOnSave": true,
+	"editor.formatOnPaste": true,
+	"editor.stickyScroll.enabled": false,
+	// "editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.codeActionsOnSave": {
+		"source.fixAll": true,
+		"source.organizeImports": true
+	},
+	"editor.wordWrap": "off",
+	"workbench.tree.indent": 12,
+	"workbench.colorCustomizations": {
+		"titleBar.activeBackground": "#393939",
+		"titleBar.activeForeground": "#fdf6fe",
+		// will change the color of three dots to red
+		"editorHint.foreground": "#f000",
+		// will underline the entire word with dots in your chosen color
+		"editorHint.border": "#00ff66"
+	},
+	"window.title": "${rootPath}${separator}${dirty}${activeEditorShort}",
+  "breadcrumbs.enabled": true,
+  "cSpell.enableFiletypes": [
+    "astro"
+  ]
+}
