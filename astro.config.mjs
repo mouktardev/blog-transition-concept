@@ -6,7 +6,7 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://example.com',
+  site: 'https://blog-transition-concept.com',
   integrations: [react(), tailwind({ applyBaseStyles: false }), sitemap()],
   server: { port: 1234, host: true },
 });

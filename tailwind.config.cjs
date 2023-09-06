@@ -7,7 +7,7 @@ module.exports = {
 	theme: {
 		extend: {
 			fontFamily: {
-				ppneue: ['"PPNeueMontreal"', ..._fontFamily.sans],
+				open: ['"Open Sans"', ..._fontFamily.sans]
 			},
 			fontWeight: {
 				thin: 100,
