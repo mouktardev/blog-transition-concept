@@ -1,4 +1,5 @@
 ---
+import { scaleIn } from "@/animation/anim";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
@@ -8,7 +9,7 @@ const posts = await getCollection("posts");
 
 <BaseLayout>
 	<!-- <ul class="grid grid-cols-1 lg:grid-cols-[1fr_minmax(600px,_1fr)_1fr] gap-8 my-10"> -->
-	<ul class="ml-auto my-10">
+	<ul class="flex justify-between gap-4 my-10">
 		{
 			posts.map((post) => {
 				const id = post.id.replace(".md", "");
@@ -17,17 +18,18 @@ const posts = await getCollection("posts");
 						<a href={`/blog/${post.slug}/`} class="flex flex-col gap-3">
 							<hr
 								transition:name={`line-1-${id}`}
+								transition:animate={scaleIn}
 								class="h-[1px] border-none bg-black"
 							/>
 							<h4
-								transition:name={`title-${id}`}
-								transition:animate="initial"
+								transition:name={`title ${id}`}
 								class="text-[2rem] leading-[2rem] p-[0.2em] font-bold capitalize"
 							>
 								{post.data.title}
 							</h4>
 							<hr
 								transition:name={`line-2-${id}`}
+								transition:animate={scaleIn}
 								class="h-[1px] border-none bg-black"
 							/>
 						</a>

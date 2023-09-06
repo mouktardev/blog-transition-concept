@@ -1,5 +1,5 @@
 ---
-import { slideIn } from "@/animation/anim";
+import { scaleOut, slideIn } from "@/animation/anim";
 import FormattedDate from "@/components/FormattedDate.astro";
 import PostLayout from "@/layouts/PostLayout.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
@@ -26,18 +26,19 @@ const SEO = {
 	<div class="flex flex-col gap-3">
 		<hr
 			transition:name={`line-1-${id}`}
-			class="relative h-[1px] border-none bg-black"
+			transition:animate={scaleOut}
+			class="h-[1px] opacity-0 border-none bg-black"
 		/>
 		<h1
-			transition:animate="initial"
-			transition:name={`title-${id}`}
+			transition:name={`title ${id}`}
 			class="w-full lg:w-[1000px] text-[4rem] leading-[4rem] p-[0.2em] font-bold capitalize"
 		>
 			{title}
 		</h1>
 		<hr
 			transition:name={`line-2-${id}`}
-			class="relative h-[1px] border-none bg-black"
+			transition:animate={scaleOut}
+			class="h-[1px] opacity-0 border-none bg-black"
 		/>
 	</div>
 	<div transition:animate={slideIn} class="flex gap-4 mt-[100px]">

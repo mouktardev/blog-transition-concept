@@ -4,12 +4,9 @@ const empty = {
         easing: "",
         fillMode: 'forwards',
 }
-const SlideAnim = {
-	old: {
-		name: "",
-		duration: "",
-		easing: "",
-	},
+
+const SlideInAnim = {
+	old: empty,
 	new: {
 		name: "slide-in",
 		delay: "0.2s",
@@ -19,28 +16,38 @@ const SlideAnim = {
 };
 
 export const slideIn = {
-	forwards: SlideAnim,
-	backwards: SlideAnim,
+	forwards: SlideInAnim,
+	backwards: SlideInAnim,
 };
 
-const ScaleAnim = {
-    old: 
-    // {
-        // name: "scale-in",
-        // duration: "2s",
-        // easing: "ease-in-out",
-        // fillMode: 'forwards',
-    // }
-    empty
-    ,
-    new: {
+const ScaleOutAnim = {
+    old:{
         name: "scale-out",
-        duration: "2s",
+        duration: "0.5s",
         easing: "ease-in-out",
-        fillMode: 'forwards',
-	},
+        fillMode: 'forwards',        
+    }, 
+    new: 
+    empty,
 };
+
 export const scaleOut = {
-	forwards: ScaleAnim,
-	backwards: ScaleAnim,
+	forwards: ScaleOutAnim,
+	backwards: ScaleOutAnim,
 };
+
+const ScaleInAnim = {
+    old:empty,
+    new:{
+        name: "scale-in",
+        duration: "0.5s",
+        easing: "ease-in-out",
+        fillMode: 'backwards',        
+    },  
+};
+
+export const scaleIn = {
+	forwards: ScaleInAnim,
+	backwards: ScaleInAnim,
+};
+

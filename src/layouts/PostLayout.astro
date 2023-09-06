@@ -13,25 +13,54 @@ const { SEO = defaultSEO } = Astro.props;
 <html transition:animate="none" lang="en">
 	<head>
 		<BaseHead title={SEO.title} description={SEO.description} />
-	</head>
+		<script>
+			import { gsap } from "gsap";
+			function initArrow() {
+				const tl = gsap.timeline();
+				tl.to(
+					"#arrow ul li:nth-child(1)",
+					{
+						rotate: "45deg",
+						translateY: "20px",
+					},
+					0
+				)
+					.to(
+						"#arrow ul li:nth-child(2)",
+						{
+							scaleX: 1.3,
+							rotate: "180deg",
+							translateX: "12px",
+						},
+						0
+					)
+					.to(
+						"#arrow ul li:nth-child(3)",
+						{
+							rotate: "-45deg",
+							translateY: "-20px",
+						},
+						0
+					);
+			}
+			initArrow();
+
+			document.addEventListener("astro:after-swap", () => {
+				if (!document.getElementById("arrow")) return;
+				initArrow();
+			});
+		</script></head
+	>
+
 	<body>
 		<main class="w-screen">
 			<header class="container mx-auto p-5">
 				<div class="relative w-full z-50 flex gap-8 items-center my-11">
-					<a class="w-12" href="/">
+					<a id="arrow" class="w-12" href="/">
 						<ul>
-							<li
-								class="w-7 h-[3px] rotate-45 translate-y-[20px] my-2 rounded-full bg-black"
-							>
-							</li>
-							<li
-								class="w-7 h-[3px] translate-x-[12px] scale-x-[1.3] my-2 rounded-full bg-black"
-							>
-							</li>
-							<li
-								class="w-7 h-[3px] -rotate-45 translate-y-[-20px] my-2 rounded-full bg-black"
-							>
-							</li>
+							<li class="w-7 h-[3px] my-2 rounded-full bg-black"></li>
+							<li class="w-7 h-[3px] my-2 rounded-full bg-black"></li>
+							<li class="w-7 h-[3px] my-2 rounded-full bg-black"></li>
 						</ul>
 					</a>
 					<a

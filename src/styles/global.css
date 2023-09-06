@@ -56,11 +56,6 @@
 	}
 }
 
-@keyframes scale-in {
-	to {
-		width: 0;
-	}
-}
 @keyframes scale-out {
 	0% {
 		transform: scaleX(1);
@@ -68,6 +63,17 @@
 	}
 	100% {
 		transform: scaleX(0);
+		transform-origin: left;
+	}
+}
+
+@keyframes scale-in {
+	0% {
+		transform: scaleX(0);
+		transform-origin: left;
+	}
+	100% {
+		transform: scaleX(1);
 		transform-origin: left;
 	}
 }
