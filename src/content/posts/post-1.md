@@ -3,7 +3,7 @@ title: how to outsource web development and web design
 excerpt: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 author: Kate Shokurove
 pubDate: "Jun 06 2020"
-heroImage: /blog-placeholder-1.jpg
+heroImage: cardmapr-nl-IUwX_P80DEU-unsplash.jpg
 tags: ["#design", "#development"]
 ---
 

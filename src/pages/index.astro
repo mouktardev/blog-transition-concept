@@ -8,13 +8,12 @@ const posts = await getCollection("posts");
 ---
 
 <BaseLayout>
-	<!-- <ul class="grid grid-cols-1 lg:grid-cols-[1fr_minmax(600px,_1fr)_1fr] gap-8 my-10"> -->
-	<ul class="flex justify-between gap-4 my-10">
+	<ul class="grid lg:grid-cols-[1fr_minmax(500px,_1fr)_1fr] gap-8 my-10">
 		{
 			posts.map((post) => {
 				const id = post.id.replace(".md", "");
 				return (
-					<li class="lg:w-[500px] flex flex-col gap-4">
+					<li class="flex flex-col gap-4">
 						<a href={`/blog/${post.slug}/`} class="flex flex-col gap-3">
 							<hr
 								transition:name={`line-1-${id}`}
@@ -43,6 +42,7 @@ const posts = await getCollection("posts");
 							<Image
 								width={720}
 								height={360}
+								class="mt-auto"
 								src={post.data.heroImage}
 								alt=""
 							/>

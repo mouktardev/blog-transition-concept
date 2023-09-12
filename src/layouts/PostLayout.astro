@@ -13,6 +13,31 @@ const { SEO = defaultSEO } = Astro.props;
 <html transition:animate="none" lang="en">
 	<head>
 		<BaseHead title={SEO.title} description={SEO.description} />
+	</head>
+	<body>
+		<main class="w-screen">
+			<header class="container mx-auto p-5">
+				<div class="relative w-full z-50 flex gap-8 items-center my-11">
+					<a id="arrow" class="w-12" href="/">
+						<ul>
+							<li class="w-7 h-[3px] my-2 rounded-full bg-black"></li>
+							<li class="w-7 h-[3px] my-2 rounded-full bg-black"></li>
+							<li class="w-7 h-[3px] my-2 rounded-full bg-black"></li>
+						</ul>
+					</a>
+					<a
+						id="contact"
+						class="ml-auto p-4 whitespace-nowrap font-bold bg-black text-white"
+						href="/"
+					>
+						Contact Us</a
+					>
+				</div>
+			</header>
+			<section class="container mx-auto p-5">
+				<slot />
+			</section>
+		</main>
 		<script>
 			import { gsap } from "gsap";
 			function initArrow() {
@@ -48,32 +73,6 @@ const { SEO = defaultSEO } = Astro.props;
 				if (!document.getElementById("arrow")) return;
 				initArrow();
 			});
-		</script></head
-	>
-
-	<body>
-		<main class="w-screen">
-			<header class="container mx-auto p-5">
-				<div class="relative w-full z-50 flex gap-8 items-center my-11">
-					<a id="arrow" class="w-12" href="/">
-						<ul>
-							<li class="w-7 h-[3px] my-2 rounded-full bg-black"></li>
-							<li class="w-7 h-[3px] my-2 rounded-full bg-black"></li>
-							<li class="w-7 h-[3px] my-2 rounded-full bg-black"></li>
-						</ul>
-					</a>
-					<a
-						id="contact"
-						class="ml-auto p-4 whitespace-nowrap font-bold bg-black text-white"
-						href="/"
-					>
-						Contact Us</a
-					>
-				</div>
-			</header>
-			<section class="container mx-auto p-5">
-				<slot />
-			</section>
-		</main>
+		</script>
 	</body>
 </html>

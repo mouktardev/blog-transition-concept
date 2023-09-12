@@ -3,7 +3,7 @@ title: what makes something beautiful and how to use it
 excerpt: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 author: Kate Shokurove
 pubDate: "Jun 06 2020"
-heroImage: /tianyi-ma-WiONHd_zYI4-unsplash.jpg
+heroImage: /erik-witsoe-NYFUVvKYAdI-unsplash.jpg
 tags: ["#design", "#development"]
 ---
 
