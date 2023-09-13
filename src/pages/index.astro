@@ -16,7 +16,7 @@ const posts = await getCollection("posts");
 					<li class="flex flex-col gap-4">
 						<a href={`/blog/${post.slug}/`} class="flex flex-col gap-3">
 							<hr
-								transition:name={`line-1-${id}`}
+								transition:name={`line-1 ${id}`}
 								transition:animate={scaleIn}
 								class="h-[1px] border-none bg-black"
 							/>
@@ -27,7 +27,7 @@ const posts = await getCollection("posts");
 								{post.data.title}
 							</h4>
 							<hr
-								transition:name={`line-2-${id}`}
+								transition:name={`line-2 ${id}`}
 								transition:animate={scaleIn}
 								class="h-[1px] border-none bg-black"
 							/>

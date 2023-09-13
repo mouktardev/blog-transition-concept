@@ -70,8 +70,7 @@ const pathname = new URL(Astro.request.url).pathname;
 					: pathname.startsWith(link.href);
 			return (
 				<a
-					transition:name={`link-${link.href}`}
-					transition:animate="initial"
+					transition:name={`link ${link.href}`}
 					class={cn(
 						isActive && "font-bold border-black border-t-2",
 						"tracking-wider p-2 cursor-pointer"
@@ -190,14 +189,10 @@ const pathname = new URL(Astro.request.url).pathname;
 			menu?.removeEventListener("click", () => tl.reversed(!tl.reversed()));
 	}
 
-	let destroy = initHamburger();
+	initHamburger();
 
 	document.addEventListener("astro:after-swap", () => {
-		destroy();
-
-		const button = getButton();
-		if (!button) return;
-
-		destroy = initHamburger();
+		if (!getButton()) return;
+		initHamburger();
 	});
 </script>
